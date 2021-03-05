@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stat_blocks",
+  "info": {
+    "name": "StatBlock"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "dex": {
+      "type": "integer"
+    },
+    "str": {
+      "type": "integer"
+    },
+    "wis": {
+      "type": "integer"
+    },
+    "cha": {
+      "type": "integer"
+    },
+    "int": {
+      "type": "integer"
+    },
+    "con": {
+      "type": "integer"
+    }
+  }
+}
