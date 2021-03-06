@@ -6,6 +6,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import NavigationBar from './NavigationBar';
 import NavigationDrawer from './NavigationDrawer';
 
+/* Constants */
+const TOP_OFFSET = 62;
+const SPACING = 3;
+
 /* Styles */
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(SPACING),
+    paddingTop: TOP_OFFSET + theme.spacing(SPACING),
   },
 }));
 
