@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {useLocation, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
+import auth from '../../util/auth';
+
 const GoogleAuthCallback = () => {
-  const [auth, setAuth] = useState({
-    jwt: '',
-    user: {
-      id: '',
-      provider: '',
-    },
-  });
   const location = useLocation();
 
   useEffect(() => {
@@ -21,24 +16,16 @@ const GoogleAuthCallback = () => {
     axios({
       method: 'GET',
       url: `http://localhost:1337/auth/google/callback?${search}`,
-    })
-        .then((res) => res.data)
-        .then(setAuth);
+    }).then((res) => {
+      return res.data;
+    }).then((res) => {
+      auth.setToken(res.jwt);
+      auth.setUserInfo(res.user);
+    });
   }, [location]);
 
-  // Remove later
-  console.log(auth);
-
   return (
-    <div>
-      {auth && (
-        <>
-          <div>Jwt: {auth.jwt}</div>
-          <div>User Id: {auth.user.id}</div>
-          <div>Provider: {auth.user.provider}</div>
-        </>
-      )}
-    </div>
+    <Redirect to='/'/>
   );
 };
 

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/lore-sections",
+      "handler": "lore-section.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lore-sections/count",
+      "handler": "lore-section.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lore-sections/:id",
+      "handler": "lore-section.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/lore-sections",
+      "handler": "lore-section.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/lore-sections/:id",
+      "handler": "lore-section.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/lore-sections/:id",
+      "handler": "lore-section.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
