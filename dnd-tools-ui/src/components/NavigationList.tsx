@@ -15,7 +15,6 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-
 /* Types */
 type ContentLink = {
     title: string,

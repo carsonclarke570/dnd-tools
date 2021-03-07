@@ -4,8 +4,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
 import Navigation from './components/Navigation';
-import Dashboard from './pages/dashboard/Dashboard';
-import RaceList from './pages/race/RaceList';
+import Dashboard from './pages/dashboard';
+import RaceList from './pages/race';
+
+import Auth from './pages/auth/GoogleAuthCallback';
+import LogIn from './pages/auth/LogIn';
 
 /* Theme */
 const theme = createMuiTheme({
@@ -22,6 +25,17 @@ const App = () => {
       <BrowserRouter>
         <Navigation>
           <Switch>
+            {/* Authentication */}
+            <Route path="/auth/callback/google">
+              <Auth />
+            </Route>
+
+            {/* Login */}
+            <Route path="/auth" exact>
+              <LogIn />
+            </Route>
+
+            {/* User Links */}
             <Route path="/dashboard" exact>
               <Dashboard />
             </Route>
