@@ -60,9 +60,8 @@
       "configurable": false
     },
     "races": {
-      "private": true,
-      "collection": "race",
-      "via": "user"
+      "via": "user",
+      "collection": "race"
     }
   }
 }

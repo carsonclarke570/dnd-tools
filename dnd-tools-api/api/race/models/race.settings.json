@@ -22,9 +22,23 @@
       "via": "race"
     },
     "user": {
-      "via": "races",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "races"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
