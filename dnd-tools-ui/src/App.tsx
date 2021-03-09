@@ -6,7 +6,6 @@ import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import Navigation from './components/Navigation';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './pages/dashboard';
-import Race from './pages/race';
 import RaceList from './pages/races';
 import Auth from './pages/auth/GoogleAuthCallback';
 import LogIn from './pages/auth/LogIn';
@@ -42,11 +41,6 @@ const App = () => {
             </PrivateRoute>
             <PrivateRoute path="/races" exact>
               <RaceList />
-            </PrivateRoute>
-
-            {/* Sublinks */}
-            <PrivateRoute path='/race/:id' exact>
-              <Race />
             </PrivateRoute>
           </Switch>
         </Navigation>

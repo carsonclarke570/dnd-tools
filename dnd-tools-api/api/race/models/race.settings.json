@@ -17,7 +17,7 @@
     "quote": {
       "model": "quote"
     },
-    "lore_sections": {
+    "loreSections": {
       "collection": "lore-section",
       "via": "race"
     },

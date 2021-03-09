@@ -18,7 +18,7 @@
       "type": "text"
     },
     "race": {
-      "via": "lore_sections",
+      "via": "loreSections",
       "model": "race"
     }
   }

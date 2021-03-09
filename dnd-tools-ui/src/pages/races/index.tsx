@@ -1,15 +1,21 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
-import auth from '../../util/auth';
+import {makeStyles} from '@material-ui/core/styles';
+
+import Error from '../../components/Error';
+import Loading from '../../components/Loading';
+import RaceType from '../../types/Race';
 import api from '../../util/api';
+import auth from '../../util/auth';
 
-// import {makeStyles} from '@material-ui/core/styles';
+import RaceTable from './RaceTable';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     zIndex: theme.zIndex.drawer + 1,
-//   },
-// }));
+/* Styles */
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
 /* Helper Functions */
 const formatQuery = () => {
@@ -19,27 +25,40 @@ query {
   races(where: {user: {id: ${user.id}}}) {
     id
     name
-    quote {
-      quote
-      author
-      source
-    }
   }
-} 
+}
 `;
 };
 
 const RaceList = () => {
-//   const classes = useStyles();
+  const classes = useStyles();
+
+  const [isLoading, setLoading] = useState(true);
+  const [races, setRaces] = useState<RaceType[] | undefined>(undefined);
 
   const query = formatQuery();
   useEffect(() => {
     api.graphqlQuery(query).then((res) => {
-      console.log(res.data);
+      api.graphqlQuery(query).then((res) => {
+        setRaces(res.data.data.races);
+        setLoading(false);
+      });
     });
   }, []);
 
-  return (<div>My Races</div>);
+  if (isLoading) {
+    return (<Loading />);
+  }
+
+  if (!races) {
+    return (<Error />);
+  }
+
+  return (
+    <div className={classes.root}>
+      <RaceTable races={races}/>
+    </div>
+  );
 };
 
 export default RaceList;

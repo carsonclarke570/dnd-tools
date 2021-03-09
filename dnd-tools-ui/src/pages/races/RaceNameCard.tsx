@@ -14,6 +14,7 @@ import text from '../../util/text';
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: '5px',
+    height: '100%',
   },
   media: {
     height: 200,
@@ -51,7 +52,7 @@ const RaceNameCard = (props: RaceNameCardProps) => {
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={api.API_URL + race.image.url}
+        image={api.API_URL + (race.image?.url || '')}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
@@ -63,10 +64,10 @@ const RaceNameCard = (props: RaceNameCardProps) => {
           color="textSecondary"
           component="p"
         >
-          {'"' + race.quote.quote + '"'}
+          {'"' + race.quote?.quote + '"'}
         </Typography>
         <Typography variant="body2" component="h2" align='right'>
-          {'- ' + race.quote.author + ', ' + race.quote.source}
+          {'- ' + race.quote?.author + ', ' + race.quote?.source}
         </Typography>
         <Divider className={classes.divider}/>
         <Typography variant="body2" component="p">

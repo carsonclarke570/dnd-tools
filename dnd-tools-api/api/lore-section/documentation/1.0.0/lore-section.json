@@ -555,7 +555,7 @@
               "quote": {
                 "type": "string"
               },
-              "lore_sections": {
+              "loreSections": {
                 "type": "array",
                 "items": {
                   "type": "string"
