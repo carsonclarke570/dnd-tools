@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "races",
+  "info": {
+    "name": "Race",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "quote": {
+      "model": "quote"
+    },
+    "loreSections": {
+      "collection": "lore-section",
+      "via": "race"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "races"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import auth from '../util/auth';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     zIndex: theme.zIndex.drawer + 1,
@@ -23,6 +25,20 @@ const useStyles = makeStyles((theme) => ({
 
 const NavigationBar = () => {
   const classes = useStyles();
+  const hasToken = auth.getToken() !== null;
+
+  const generateAuthButton = (loggedIn: boolean) => {
+    if (loggedIn) {
+      return (<Button color="inherit" disabled>Log Out</Button>);
+    }
+    return (
+      <Link to='/auth' className={classes.link}>
+        <Button color="inherit">Log In</Button>
+      </Link>
+    );
+  };
+
+  const authButton = generateAuthButton(hasToken);
 
   return (
     <AppBar position="fixed" className={classes.root}>
@@ -30,9 +46,7 @@ const NavigationBar = () => {
         <Typography variant="h6" className={classes.title}>
           DnD Tools
         </Typography>
-        <Link to='/auth' className={classes.link}>
-          <Button color="inherit">Log In</Button>
-        </Link>
+        {authButton}
       </Toolbar>
     </AppBar>
   );

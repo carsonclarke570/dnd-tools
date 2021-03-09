@@ -4,9 +4,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
 import Navigation from './components/Navigation';
+import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './pages/dashboard';
-import RaceList from './pages/race';
-
+import RaceList from './pages/races';
 import Auth from './pages/auth/GoogleAuthCallback';
 import LogIn from './pages/auth/LogIn';
 
@@ -36,12 +36,12 @@ const App = () => {
             </Route>
 
             {/* User Links */}
-            <Route path="/dashboard" exact>
+            <PrivateRoute path="/dashboard" exact>
               <Dashboard />
-            </Route>
-            <Route path="/races" exact>
+            </PrivateRoute>
+            <PrivateRoute path="/races" exact>
               <RaceList />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Navigation>
       </BrowserRouter>
