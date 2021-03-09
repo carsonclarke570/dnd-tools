@@ -1,1 +1,1 @@
-web: cd ./dnd-tools-api && npm start
+web: npm start --prefix server
