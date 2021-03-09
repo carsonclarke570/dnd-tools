@@ -1,0 +1,1 @@
+web: cd ./dnd-tools-api && npm start
