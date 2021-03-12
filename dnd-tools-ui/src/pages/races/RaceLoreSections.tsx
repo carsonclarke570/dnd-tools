@@ -44,7 +44,7 @@ const RaceLoreSections = (props: RaceLoreSectionsProps) => {
   const generateSections = (sections: LoreSection[]) => {
     return sections.map((section, idx) => (
       <Grid item xs={12} key={idx}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="h3" component="h3">
           {section.name}
         </Typography>
         <Typography variant="body2" component="p">

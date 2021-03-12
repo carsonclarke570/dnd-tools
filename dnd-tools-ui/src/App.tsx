@@ -1,8 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
-
 import Navigation from './components/Navigation';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './pages/dashboard';
@@ -10,18 +8,11 @@ import RaceList from './pages/races';
 import Auth from './pages/auth/GoogleAuthCallback';
 import LogIn from './pages/auth/LogIn';
 
-/* Theme */
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#26a69a',
-    },
-  },
-});
+import Theme from './Theme';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <Theme>
       <BrowserRouter>
         <Navigation>
           <Switch>
@@ -45,7 +36,7 @@ const App = () => {
           </Switch>
         </Navigation>
       </BrowserRouter>
-    </ThemeProvider>
+    </Theme>
   );
 };
 
